@@ -376,7 +376,9 @@
   "isWebTier": false,
   "httpProxy": {
     "useProxy": true,
-    "url": "https://pc-nbr:3344/proxy.js"
+    "alwaysUseProxy": false,
+    "url": "",
+    "rules": []
   },
   "dataSource": {
     "dataSources": {},
