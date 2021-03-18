@@ -122,7 +122,7 @@ define(['dojo/_base/declare', 'jimu/BaseWidget', "dojo/_base/lang", "esri/tasks/
         }
       }));
     },
-    zoomProvincia: function zoomParroquia() {
+    zoomProvincia: function zoomProvincia() {
 
       var ZOOMprovincia = this.selectProvincia.value;
       if (ZOOMprovincia == -1) return;
