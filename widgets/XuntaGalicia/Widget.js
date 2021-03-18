@@ -129,12 +129,12 @@ define(['dojo/_base/declare', 'jimu/BaseWidget', "dojo/_base/lang", "esri/tasks/
 
       /// AHORA LA QUERY PARA QUE NOS DE LA GEOMETRIA
       var queryTask = new QueryTask(this.config.Provincia);
-
+      console.log("provincia" + queryTask)
       var query = new Query();
       query.returnGeometry = true;
       query.outSpatialReference = new SpatialReference(102100);
       query.where = "PROVINCIA = '" + ZOOMprovincia+"'";
-
+      console.log("provincia" + query)
       queryTask.execute(query, lang.hitch(this, function (results) {
         if (results.features.length > 0) {
           var geom = results.features[0].geometry;
