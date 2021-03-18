@@ -121,8 +121,29 @@ define(['dojo/_base/declare', 'jimu/BaseWidget', "dojo/_base/lang", "esri/tasks/
           this.map.setExtent(geom.getExtent(), true);
         }
       }));
-    }
+    },
+    zoomProvincia: function zoomParroquia() {
 
+      var ZOOMprovincia = this.selectProvincia.value;
+      if (ZOOMprovincia == -1) return;
+
+      /// AHORA LA QUERY PARA QUE NOS DE LA GEOMETRIA
+      var queryTask = new QueryTask(this.config.Provincia);
+
+      var query = new Query();
+      query.returnGeometry = true;
+      query.outSpatialReference = new SpatialReference(102100);
+      query.where = "PROVINCIA = '" + ZOOMprovincia+"'";
+
+      queryTask.execute(query, lang.hitch(this, function (results) {
+        if (results.features.length > 0) {
+          var geom = results.features[0].geometry;
+          this.map.graphics.clear();
+          this.map.graphics.add(new Graphic(geom, new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([0, 0, 0]), 2)));
+          this.map.setExtent(geom.getExtent(), true);
+        }
+      }));
+    }
     //////////////////////////
 
   });
