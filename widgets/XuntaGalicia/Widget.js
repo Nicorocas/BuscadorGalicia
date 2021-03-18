@@ -124,7 +124,7 @@ define(['dojo/_base/declare', 'jimu/BaseWidget', "dojo/_base/lang", "esri/tasks/
     },
     zoomProvincia: function zoomProvincia() {
 
-      var ZOOMprovincia = this.selectProvincia.value;
+      var ZOOMprovincia = this.selectProvincia.text;
       if (ZOOMprovincia == -1) return;
 
       /// AHORA LA QUERY PARA QUE NOS DE LA GEOMETRIA
